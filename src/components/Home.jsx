@@ -2,6 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { animate, motion } from "framer-motion";
 
+const buttonVariant = {
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255,255,255) ",
+    boxShadow: "0px 0px 8px rgb(255,255,255) ",
+    transition : {
+      duration: 0.3,
+      repeat:Infinity,
+      repeatType:"reverse"
+    }
+   
+  }
+};
+
 const Home = () => {
   return (
     <motion.div
@@ -13,11 +27,9 @@ const Home = () => {
       <h2>Welcome to Pizza Joint</h2>
       <Link to="/base">
         <motion.button
-          whileHover={{
-            scale: 1.1,
-            textShadow: "0px 0px 8px rgb(255,255,255) ",
-            boxShadow: "0px 0px 8px rgb(255,255,255) ",
-          }}
+          whileHover="hover"
+          variants={buttonVariant}
+
         >
           Create Your Pizza
         </motion.button>

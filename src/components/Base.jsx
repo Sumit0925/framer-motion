@@ -15,6 +15,12 @@ const containerVariant = {
       delay: 0.5,
     },
   },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
 };
 
 const nextVariant = {
@@ -35,13 +41,12 @@ const buttonVariant = {
     scale: 1.1,
     textShadow: "0px 0px 8px rgb(255,255,255) ",
     boxShadow: "0px 0px 8px rgb(255,255,255) ",
-    transition : {
+    transition: {
       duration: 0.3,
-      repeat:Infinity,
-      repeatType:"reverse"
-    }
-   
-  }
+      repeat: Infinity,
+      repeatType: "reverse",
+    },
+  },
 };
 
 const Base = ({ addBase, pizza }) => {
@@ -53,6 +58,7 @@ const Base = ({ addBase, pizza }) => {
       initial="hidden"
       animate="visible"
       variants={containerVariant}
+      exit="exit"
     >
       <h3>Step 1: Choose Your Base</h3>
       <ul>
@@ -74,10 +80,7 @@ const Base = ({ addBase, pizza }) => {
       {pizza.base && (
         <motion.div className="next" variants={nextVariant}>
           <Link to="/toppings">
-            <motion.button
-              whileHover="hover"
-              variants={buttonVariant}
-            >
+            <motion.button whileHover="hover" variants={buttonVariant}>
               Next
             </motion.button>
           </Link>

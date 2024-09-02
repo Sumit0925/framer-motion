@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Modal from "./Modal";
 
 const containerVariant = {
   hidden: {
@@ -29,23 +30,37 @@ const childrenVariant = {
 };
 
 const Order = ({ pizza }) => {
+  const [modal,setModal] = useState(false);
+
+
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setModal(true)
+    },5000)
+  },[setModal])
+
   return (
-    <motion.div
-      className="container order"
-      variants={containerVariant}
-      initial="hidden"
-      animate="visible"
-    >
-      <h2>Thank you for your order :)</h2>
-      <motion.p variants={childrenVariant}>
-        You ordered a {pizza.base} pizza with:
-      </motion.p>
-      <motion.div variants={childrenVariant}>
-        {pizza.toppings.map((topping) => (
-          <div key={topping}>{topping}</div>
-        ))}
+    <>
+      {modal && <Modal />}
+
+      <motion.div
+        className="container order"
+        variants={containerVariant}
+        initial="hidden"
+        animate="visible"
+      >
+        <h2>Thank you for your order :&#41;</h2>
+        <motion.p variants={childrenVariant}>
+          You ordered a {pizza.base} pizza with:
+        </motion.p>
+        <motion.div variants={childrenVariant}>
+          {pizza.toppings.map((topping) => (
+            <div key={topping}>{topping}</div>
+          ))}
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </>
   );
 };
 

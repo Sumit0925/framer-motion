@@ -18,6 +18,12 @@ const containerVariant = {
       staggerChildren: 0.4,
     },
   },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
 };
 
 const childrenVariant = {
@@ -49,6 +55,7 @@ const Order = ({ pizza }) => {
         variants={containerVariant}
         initial="hidden"
         animate="visible"
+        exit="exit"
       >
         <h2>Thank you for your order :&#41;</h2>
         <motion.p variants={childrenVariant}>

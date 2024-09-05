@@ -9,12 +9,6 @@ const backdropVariant = {
   visible: {
     opacity: 1,
   },
-  exit: {
-    x: "-100vw",
-    transition: {
-      ease: "easeInOut",
-    },
-  },
 };
 
 const modalVariant = {
@@ -27,12 +21,6 @@ const modalVariant = {
     opacity: 1,
     transition: {
       delay: 0.5,
-    },
-  },
-  exit: {
-    x: "-100vw",
-    transition: {
-      ease: "easeInOut",
     },
   },
 };

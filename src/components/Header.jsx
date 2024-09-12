@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const svgVariant = {
   hidden: {
@@ -58,7 +59,7 @@ const Header = () => {
         animate={{ y: -10 }}
         transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
       >
-        <h1>Pizza Joint</h1>
+        <h1> <Link to="/">Pizza Joint</Link> </h1>
       </motion.div>
     </header>
   );
